@@ -1,5 +1,5 @@
 # Unit 2: Intro to Functions, Arrays, and Strings
-[Class Exercises](Unit2/class_exercises/) | [Example Programs](Unit2/example_programs/) | [Slides](Unit2/slides/)
+[Class Exercises](Unit2/class_exercises/) | [Code Examples](Unit2/code_examples/) | [Slides](Unit2/slides/)
 
 ## Functions 🛠️
 - Functions can take zero, one or many arguments, but only return one value.
@@ -52,7 +52,7 @@ char *str3 = "Hello";    // Size of the array is determined by the length of the
 <div><br><br><br><br></div> <!-- spacer -->
 
 # Unit 3: Intro to Structs, Debugging, and the Preprocessor
-[Class Exercises](Unit3/class_exercises/) | [Example Programs](Unit3/example_programs/) | [Slides](Unit3/slides/)
+[Class Exercises](Unit3/class_exercises/) | [Code Examples](Unit3/code_examples/) | [Slides](Unit3/slides/)
 
 ## Structs 🏗️
 - A struct is a collection of variables grouped together under one name.
