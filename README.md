@@ -9,9 +9,18 @@
 - 
 - 
 ## Module 03 - Unit 3: Structs, the Preprocessor and Debugging in C
-- 
-- 
-- 
+| Command   | Description                                                     |
+|-----------|-----------------------------------------------------------------|
+| `break`   | Set a breakpoint                                                |
+| `run`     | Start program running from the beginning                       |
+| `cont`    | Continue execution of the program until it hits a breakpoint    |
+| `quit`    | Quit the GDB session                                           |
+| `next`    | Allow the program to execute the next line of C code and then pause it |
+| `step`    | Allow the program to execute the next line of C code; if the next line contains a function call, step into the function and pause |
+| `list`    | List C source code around the pause point or a specified point |
+| `print`   | Print out the value of a program variable (or expression)      |
+| `where`   | Print the call stack                                           |
+| `frame`   | Move into the context of a specific stack frame                |
 ## Module 04: Number Systems
 - 
 - 
