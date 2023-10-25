@@ -22,15 +22,22 @@ int add(int a, int b) {
 
 
 ## Arrays 🔢 
-- Different ways to declare an array:
+- Ways to declare an array:
 ```c
 int arr1[10];                 // 10 is the size of the array
 int arr2[] = {1, 2, 3, 4, 5}; // Size of the array is determined by the number of elements
 ```
+- To access an element in an array, use the index of the element.
+```c
+int arr[5] = {1, 2, 3, 4, 5};
+int first = arr[0]; // first = 1
+int last = arr[4];  // last = 5
+```
+
 
 ## Strings 🔤
 - Strings are stored as an array of characters.
-- Different ways to declare a String:
+- Ways to declare a String:
 ```c
 char str1[10] = "Hello"; // 10 is the size of the array
 char str2[] = "Hello";   // Size of the array is determined by the length of the string
@@ -46,6 +53,49 @@ char *str3 = "Hello";    // Size of the array is determined by the length of the
 # Unit 3: Intro to Structs, Debugging, and the Preprocessor
 
 ## Structs 🏗️
+- A struct is a collection of variables grouped together under one name.
+- A struct can contain variables of different types.
+- A struct can be passed to a function by value or by reference.
+- Example of a struct:
+```c
+struct student {
+    char *name;
+    int age;
+    float gpa;
+};
+```
+- Example of declaring a struct variable:
+```c
+struct student s1;
+```
+- Example of accessing a struct variable:
+```c
+s1.name = "John";
+s1.age = 20;
+s1.gpa = 3.5;
+```
+- Example of passing a struct to a function by **_value_**:
+```c
+void printStudent(struct student s) {
+    printf("Name: %s\n", s.name);
+    printf("Age: %d\n", s.age);
+    printf("GPA: %f\n", s.gpa);
+}
+
+printStudent(s1);
+```
+- Example of passing a struct to a function by **_reference_**:
+```c
+void printStudent(struct student *s) {
+    printf("Name: %s\n", s->name);
+    printf("Age: %d\n", s->age);
+    printf("GPA: %f\n", s->gpa);
+}
+
+printStudent(&s1);
+```
+
+
 
 ## The Preprocessor ⚙️
 [Wiki: Preprocessor Directives and Macros](https://en.wikibooks.org/wiki/C_Programming/Preprocessor_directives_and_macros)
