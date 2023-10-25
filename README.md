@@ -5,10 +5,23 @@
 </div>      
 
 ## 3️⃣ Module 03 - Unit 2: Functions and Arrays in C
+#### [Slides](Module3/Unit2/slides/) 
+ <!-- [Notes]() | [Resources]() -->
 - 
 - 
 - 
 ## 3️⃣ Module 03 - Unit 3: Structs, the Preprocessor and Debugging in C
+#### [Slides](Module3/Unit3/slides/)
+### 1) Compile your program with the `-g` flag.
+```
+$ gcc -g -o program program.c
+```
+### 2) Run GDB on your program.
+```
+$ gdb program
+```
+### 3) Use the following commands to debug your program.
+
 | Command   | Description                                                     |
 |-----------|-----------------------------------------------------------------|
 | `break`   | Set a breakpoint                                                |
@@ -26,6 +39,7 @@
 
 
 ## 4️⃣ Module 04: Number Systems
+#### [Slides](Module4/slides/) 
 - 
 - 
 - 
@@ -33,6 +47,8 @@
 <p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
 
 ## 5️⃣ Module 05 - Unit 1: Program Memory, C Pointers and Arrays
+#### [Slides](Module5/Unit1/slides/)
+
 ### malloc() function
 ```
 int *intArray;
@@ -41,6 +57,7 @@ intArray = (int *)malloc(5 * sizeof(int));
 - 
 - 
 ## 5️⃣ Module 05 - Unit 2: The String Library, Structs and I/O
+#### [Slides](Module5/Unit2/slides/)
 
 ### <string.h> Library Functions 📚
 | Function               | Description                                                         |
@@ -55,6 +72,7 @@ intArray = (int *)malloc(5 * sizeof(int));
 | `strchr(str, ch);`    | Returns a pointer to the first occurrence of the character `ch` in `str` |
 | `sprintf(str, "%d", n);` | Writes the string form of the integer `n` into `str`           |
 
+
 ### <ctype.h> Library Functions 📚
 | Function        | Description                                      |
 |-----------------|--------------------------------------------------|
@@ -66,6 +84,7 @@ intArray = (int *)malloc(5 * sizeof(int));
 | `islower(ch);` | Returns true if `ch` is a lowercase letter     |
 | `toupper(ch);` | Returns `ch` converted to uppercase             |
 | `tolower(ch);` | Returns `ch` converted to lowercase             |
+
 
 ### <stdlib.h> Library Functions 📚
 | Function         | Description                             |
