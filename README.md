@@ -4,11 +4,11 @@
   <br><br><br>
 </div>      
 
-## Module 03 - Unit 2: Functions and Arrays in C
+## 3️⃣ Module 03 - Unit 2: Functions and Arrays in C
 - 
 - 
 - 
-## Module 03 - Unit 3: Structs, the Preprocessor and Debugging in C
+## 3️⃣ Module 03 - Unit 3: Structs, the Preprocessor and Debugging in C
 | Command   | Description                                                     |
 |-----------|-----------------------------------------------------------------|
 | `break`   | Set a breakpoint                                                |
@@ -21,11 +21,18 @@
 | `print`   | Print out the value of a program variable (or expression)      |
 | `where`   | Print the call stack                                           |
 | `frame`   | Move into the context of a specific stack frame                |
-## Module 04: Number Systems
+
+<p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
+
+
+## 4️⃣ Module 04: Number Systems
 - 
 - 
 - 
-## Module 05 - Unit 1: Program Memory, C Pointers and Arrays
+
+<p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
+
+## 5️⃣ Module 05 - Unit 1: Program Memory, C Pointers and Arrays
 ### malloc() function
 ```
 int *intArray;
@@ -33,9 +40,9 @@ intArray = (int *)malloc(5 * sizeof(int));
 ```
 - 
 - 
-## Module 05 - Unit 2: The String Library, Structs and I/O
+## 5️⃣ Module 05 - Unit 2: The String Library, Structs and I/O
 
-### <string.h> Library Functions
+### <string.h> Library Functions 📚
 | Function               | Description                                                         |
 |------------------------|---------------------------------------------------------------------|
 | `strlen(str);`         | Returns the length of `str`                                        |
@@ -48,7 +55,7 @@ intArray = (int *)malloc(5 * sizeof(int));
 | `strchr(str, ch);`    | Returns a pointer to the first occurrence of the character `ch` in `str` |
 | `sprintf(str, "%d", n);` | Writes the string form of the integer `n` into `str`           |
 
-### <ctype.h> Library Functions
+### <ctype.h> Library Functions 📚
 | Function        | Description                                      |
 |-----------------|--------------------------------------------------|
 | `isalpha(ch);` | Returns true if `ch` is a letter                 |
@@ -60,13 +67,15 @@ intArray = (int *)malloc(5 * sizeof(int));
 | `toupper(ch);` | Returns `ch` converted to uppercase             |
 | `tolower(ch);` | Returns `ch` converted to lowercase             |
 
-### <stdlib.h> Library Functions
+### <stdlib.h> Library Functions 📚
 | Function         | Description                             |
 |------------------|-----------------------------------------|
 | `atoi(str);`     | Converts the string `str` to an integer |
 | `atof(str);`     | Converts the string `str` to a double  |
 
-
+<p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
 
 ## Resources
 - [C Programming Language](https://en.wikipedia.org/wiki/C_(programming_language))
+
+
