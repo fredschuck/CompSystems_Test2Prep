@@ -34,8 +34,8 @@ intArray = (int *)malloc(5 * sizeof(int));
 - 
 - 
 ## Module 05 - Unit 2: The String Library, Structs and I/O
-### String Library
 
+### <string.h> Library Functions
 | Function               | Description                                                         |
 |------------------------|---------------------------------------------------------------------|
 | `strlen(str);`         | Returns the length of `str`                                        |
@@ -48,8 +48,24 @@ intArray = (int *)malloc(5 * sizeof(int));
 | `strchr(str, ch);`    | Returns a pointer to the first occurrence of the character `ch` in `str` |
 | `sprintf(str, "%d", n);` | Writes the string form of the integer `n` into `str`           |
 
-- 
-- 
+### <ctype.h> Library Functions
+| Function        | Description                                      |
+|-----------------|--------------------------------------------------|
+| `isalpha(ch);` | Returns true if `ch` is a letter                 |
+| `isdigit(ch);` | Returns true if `ch` is a digit                  |
+| `isalnum(ch);` | Returns true if `ch` is a letter or digit        |
+| `isspace(ch);` | Returns true if `ch` is a whitespace character   |
+| `isupper(ch);` | Returns true if `ch` is an uppercase letter     |
+| `islower(ch);` | Returns true if `ch` is a lowercase letter     |
+| `toupper(ch);` | Returns `ch` converted to uppercase             |
+| `tolower(ch);` | Returns `ch` converted to lowercase             |
+
+### <stdlib.h> Library Functions
+| Function         | Description                             |
+|------------------|-----------------------------------------|
+| `atoi(str);`     | Converts the string `str` to an integer |
+| `atof(str);`     | Converts the string `str` to a double  |
+
 
 
 ## Resources
