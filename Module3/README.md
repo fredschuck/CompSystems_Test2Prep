@@ -1,3 +1,9 @@
+<div align="center">
+  <h1>Module 3</h1>
+  <br><br><br>
+</div>      
+
+
 # Unit 2: Intro to Functions, Arrays, and Strings
 [Class Exercises](Unit2/class_exercises/) | [Code Examples](Unit2/code_examples/) | [Slides](Unit2/slides/)
 
@@ -34,6 +40,20 @@ int arr[5] = {1, 2, 3, 4, 5};
 int first = arr[0]; // first = 1
 int last = arr[4];  // last = 5
 ```
+- At compilation, the compiler does not check if the index is out of bounds, so make sure the index is within bounds.
+- The name of the array variable is equivalent to the base address (that is, the memory location of the 0th element) of the array.
+- When passing an array to a function, the array is passed by reference, so any changes made to the array inside the function will be reflected in the original array. Example: 
+```c
+void changeArray(int arr[]) {
+    arr[0] = 10;
+}
+ 
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    changeArray(arr);
+    printf("%d\n", arr[0]); // Prints out 10
+}
+```
 
 
 ## Strings 🔤
@@ -45,6 +65,7 @@ char str2[] = "Hello";   // Size of the array is determined by the length of the
 char *str3 = "Hello";    // Size of the array is determined by the length of the string
 ```
 - Strings are terminated with a null character `\0`, so when declaring a string, you must account for the null character.
+- To find the size of a string, find the length of the array in **bytes** and divide by the size of a character in **bytes**. Example: `strlen(arr)*8/sizeof(char)*8`.
 
 
 ### Resources: - [C Programming Language (1.4 - 1.5)](https://diveintosystems.org/book/C1-C_intro/functions.html)
@@ -101,6 +122,36 @@ printStudent(&s1);
 
 ## The Preprocessor ⚙️
 [Wiki: Preprocessor Directives and Macros](https://en.wikibooks.org/wiki/C_Programming/Preprocessor_directives_and_macros)
+
+### Macros
+- A macro is a fragment of code which has been given a name and can be used in place of a more verbose code fragment.
+- Macros are defined using the `#define` directive.
+- Macros are expanded by the preprocessor before compilation.
+- Example of a macro:
+```c
+#define PI 3.14159
+```
+- Example of using a macro:
+```c
+float area = PI * radius * radius;
+```
+
+### Conditional Compilation
+- Conditional compilation allows you to include or exclude code based on certain conditions.
+- Conditional compilation is done using the `#if`, `#elif`, `#else`, and `#endif` directives.
+- Example of conditional compilation:
+```c
+#define DEBUG 1
+
+int main() {
+    #if DEBUG
+        printf("Debugging is on\n");
+    #else
+        printf("Debugging is off\n");
+    #endif
+}
+```
+
 
 ## Debugging with GDB 🕵️ 
 1) Compile your program with the `-g` flag.
