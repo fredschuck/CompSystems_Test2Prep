@@ -4,14 +4,20 @@
   <br><br><br>
 </div>      
 
+
+
+<!--
+******************************************************************************************** 
+            MODULE 3 
+******************************************************************************************** 
+-->
 ## 3️⃣ Module 03 - Unit 2: Functions and Arrays in C
-#### [Slides](Module3/Unit2/slides/) 
+#### [Slides](Module3/Unit2/slides/) | [...Read More](Module3) 
  <!-- [Notes]() | [Resources]() -->
-- 
-- 
-- 
+
+
 ## 3️⃣ Module 03 - Unit 3: Structs, the Preprocessor and Debugging in C
-#### [Slides](Module3/Unit3/slides/)
+#### [Slides](Module3/Unit3/slides/) | [...Read More](Module3) 
 ### 1) Compile your program with the `-g` flag.
 ```
 $ gcc -g -o program program.c
@@ -38,14 +44,27 @@ $ gdb program
 <p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
 
 
+
+
+
+<!--
+******************************************************************************************** 
+            MODULE 4 
+******************************************************************************************** 
+-->
 ## 4️⃣ Module 04: Number Systems
 #### [Slides](Module4/slides/) 
-- 
-- 
-- 
+
 
 <p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
 
+
+
+<!--
+******************************************************************************************** 
+            MODULE 5 
+******************************************************************************************** 
+-->
 ## 5️⃣ Module 05 - Unit 1: Program Memory, C Pointers and Arrays
 #### [Slides](Module5/Unit1/slides/)
 
@@ -54,8 +73,7 @@ $ gdb program
 int *intArray;
 intArray = (int *)malloc(5 * sizeof(int));
 ```
-- 
-- 
+
 ## 5️⃣ Module 05 - Unit 2: The String Library, Structs and I/O
 #### [Slides](Module5/Unit2/slides/)
 
