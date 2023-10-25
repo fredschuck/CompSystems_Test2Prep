@@ -26,11 +26,28 @@
 - 
 - 
 ## Module 05 - Unit 1: Program Memory, C Pointers and Arrays
-- 
+### malloc() function
+```
+int *intArray;
+intArray = (int *)malloc(5 * sizeof(int));
+```
 - 
 - 
 ## Module 05 - Unit 2: The String Library, Structs and I/O
-- 
+### String Library
+
+| Function               | Description                                                         |
+|------------------------|---------------------------------------------------------------------|
+| `strlen(str);`         | Returns the length of `str`                                        |
+| `strcpy(str1, str2);`  | Copies `str2` into `str1`                                           |
+| `strncpy(str1, str2, n);` | Copies `n` characters of `str2` into `str1`                     |
+| `strcmp(str1, str2);` | Returns 0 if `str1` and `str2` are equal                           |
+| `strncmp(str1, str2, n);` | Returns 0 if the first `n` characters of `str1` and `str2` are equal |
+| `strcat(str1, str2);` | Concatenates `str2` onto the end of `str1`                        |
+| `strstr(str1, str2);` | Returns a pointer to the first occurrence of `str2` in `str1`     |
+| `strchr(str, ch);`    | Returns a pointer to the first occurrence of the character `ch` in `str` |
+| `sprintf(str, "%d", n);` | Writes the string form of the integer `n` into `str`           |
+
 - 
 - 
 
