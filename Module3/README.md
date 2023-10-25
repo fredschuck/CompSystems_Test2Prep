@@ -1,25 +1,26 @@
 # Unit 2: Functions, Arrays, and Strings
 
-## Notes:
+## Functions 🛠️
 - Functions can take zero, one or many arguments, but only return one value.
 - Arguments passed to functions are either passed by value or passed by reference (only if using pointers).
+- A function **_prototype_** is a declaration of a function that specifies the function's name and type signature (arity, parameter types, and return type), but omits the function body.
+- A function **_definition_** is the function prototype plus its body.
 
-## Function Prototypes
-- A function prototype is a declaration of a function that specifies the function's name and type signature (arity, parameter types, and return type), but omits the function body.
+## Arrays 📊
 
-## Function Definitions
-- A function definition is the function prototype plus its body.
+## Strings 🔤
 
 ### Resources: - [C Programming Language (1.4 - 1.5)](https://diveintosystems.org/book/C1-C_intro/functions.html)
 
 <div><br><br><br><br></div> <!-- spacer -->
 
-# Unit 3: Intro to Structs and Debugging
+# Unit 3: Intro to Structs, Debugging, and the Preprocessor
 
-## Notes:
-- 
+## Structs 🏗️
 
-## Debugging with GDB
+## The Preprocessor ⚙️
+
+## Debugging with GDB 🕵️ 
 1) Compile your program with the `-g` flag.
 ```
 $ gcc -g -o program program.c
