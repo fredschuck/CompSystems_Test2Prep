@@ -56,4 +56,6 @@ Steps:
 4) Take the remainder (4) and write it down
 5) Repeat until the quotient is smaller than the base
 
+To obtain your result, grab the remainders from bottom to top. In this case, the result is (3246)<sub>7</sub>
+
 ![image](resources/convertion_1.png)
