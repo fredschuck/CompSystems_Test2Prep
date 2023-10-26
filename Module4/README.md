@@ -61,26 +61,51 @@ To obtain your result, grab the remainders from bottom to top. In this case, the
 ![image](resources/convertion_1.png)
 
 ## Signed Binary Number Encoding
+- There are two potential ways to encode a signed binary number: signed magnitude and two's complement.
+- The leftmost bit is the sign bit. 0 is positive, 1 is negative.
 
 ## Signed Magnitude
+- Treats the high-order (leftmost) bit as a sign bit.
+- The high-rder bit doesn't affect the absolute value of the number.
 
-## Converting Signed Binary to Decimal
+### Converting Signed Binary to Decimal
+(1101)<sub>2</sub> <br>
+= - (1 x 2<sup>2</sup> + 0 x 2<sup>1</sup> + 1 x 2<sup>0</sup>)<br>
+= - (1 x 4 + 0 x 2 + 1 x 1)<br>
+= - (4 + 0 + 1) <br>
+= -5
 
 ## Two's Complement
+- Treats the high-order (leftmost) bit as a sign bit and also affects the value of the number.
+- If the high-order bit is 1, then you multipy -1 by 2<sup>n-1</sup> where n is the number of bits.
 
-## Converting from Decimal to Two's Complement
+### Converting Two's Complement to Decimal
+(1101)<sub>2</sub> <br>
+= ( -1 x 2<sup>3</sup> + 1 x 2<sup>2</sup> + 0 x 2<sup>1</sup> + 1 x 2<sup>0</sup> )<br>
+= ( -1 x 8 + 1 x 4 + 0 x 2 + 1 x 1 )<br>
+= -8 + 4 + 0 + 1 <br>
+= -3
 
-## Converting Negative Decimal to Two's Complement
+### Converting Negative Decimal to Two's Complement
+1) Convert the absolute value of the number to binary
+2) Flip all the bits
+3) Add 1
 
-## Converting from Two's Complement to Decimal
+Example: **-13** <br>
+0000 1101 `< 13`<br>
+1111 0010 `< flip all the bits` <br>
+0000 0001 `< add 1` <br>
+1111 0011 `< result` <br>
 
-## Additionof Two Unsigned Binary Numbers
+## Addition of Binary Numbers
 
-## Addition of Two Signed Binary Numbers
+### Unsigned
 
-## Bitwise Operators
+### Signed
 
-## Bitwise Operations 
+## Bitwise Operations
+
+### Bitwise Operators 
 
 ## Bit Shifting
 
