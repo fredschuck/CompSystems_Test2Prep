@@ -14,10 +14,55 @@
 ## 3️⃣ Module 03 - Unit 2: Functions and Arrays in C
 #### [Slides](Module3/Unit2/slides/) | [...Read More](Module3) 
  <!-- [Notes]() | [Resources]() -->
+### Functions
+Like in other languages, functions that do not return a value should explicitly state the return type as void.
+```
+void my_function(int num){
+  if(0 > num){
+    printf("Your number is not greater than zero!");
+  }
+  else{
+    printf("Your number is greater than zero!");
+  }
+}
+```
+If we wanted to edit this function to return a value, we would do the following:
+```
+int greater_than(int num){
+  if(0 > num){
+    printf("Your number is not greater than zero!");
+    return 0;
+  }
+  else{
+    printf("Your number is greater than zero!");
+    return 1;
+  }
+}
+```
+In this case, the function evaluates to "true" if the number is not greater than zero (less than zero). Remember that C interprets 0 as true, and any non-zero number as false.
 
+### The Stack
+(From Geeks4Geeks) Stack is a linear data structure that follows a particular order in which the operations are performed.
+The execution stack in C uses the FIFO (first in, first out) methodology.
+Each function call creates a new stack frame (also known as an activation frame or activation record), and this frame stores the paramaters passed into the function and its local variables. These frames are popped from the top of the stack when the function returns (which is why specifying proper return type and ensuring that each function has a return is so important!)
 
 ## 3️⃣ Module 03 - Unit 3: Structs, the Preprocessor and Debugging in C
 #### [Slides](Module3/Unit3/slides/) | [...Read More](Module3) 
+### Structs
+Structs are a collection of data elements of different types. The "elements" of a struct are called members.
+Structs are declared with the following format:
+```
+//declaring a student struct
+struct studentT{
+   char name[64];
+   int age;
+   float gpa;
+   int grad_year;
+}
+
+```
+
+### Debugging using GDB
 ### 1) Compile your program with the `-g` flag.
 ```
 $ gcc -g -o program program.c
