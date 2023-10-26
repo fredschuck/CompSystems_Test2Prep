@@ -86,7 +86,7 @@ $ gdb program
 | `where`   | Print the call stack                                           |
 | `frame`   | Move into the context of a specific stack frame                |
 
-<p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
+<p align="right">(<a href="#top"> back to top ↑ </a>)</p>
 
 
 
@@ -101,7 +101,7 @@ $ gdb program
 #### [Slides](Module4/slides/) 
 
 
-<p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
+<p align="right">(<a href="#top"> back to top ↑ </a>)</p>
 
 
 
@@ -155,7 +155,7 @@ intArray = (int *)malloc(5 * sizeof(int));
 | `atoi(str);`     | Converts the string `str` to an integer |
 | `atof(str);`     | Converts the string `str` to a double  |
 
-<p align="right">(<a href="#readme-top"> back to top ↑ </a>)</p>
+<p align="right">(<a href="#top"> back to top ↑ </a>)</p>
 
 ## Resources
 - [C Programming Language](https://en.wikipedia.org/wiki/C_(programming_language))

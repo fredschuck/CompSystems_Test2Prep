@@ -33,6 +33,9 @@ int add(int a, int b) {
 ```c
 int arr1[10];                 // 10 is the size of the array
 int arr2[] = {1, 2, 3, 4, 5}; // Size of the array is determined by the number of elements
+int arr3[10] = {1, 2, 3};     // First three elements are initialized and the rest are initialized to 0
+int arr4[10] = {0};           // All elements are initialized to 0
+int arr5[10] = {[0] = 1, [4] = 5}; // Only the 0th and 4th elements are initialized
 ```
 - To access an element in an array, use the index of the element.
 ```c
@@ -42,7 +45,7 @@ int last = arr[4];  // last = 5
 ```
 - At compilation, the compiler does not check if the index is out of bounds, so make sure the index is within bounds.
 - The name of the array variable is equivalent to the base address (that is, the memory location of the 0th element) of the array.
-- When passing an array to a function, the array is passed by reference, so any changes made to the array inside the function will be reflected in the original array. Example: 
+- When passing an array to a function, the array is passed by reference (specifically, a copy of the base address), so any changes made to the array inside the function will be reflected in the original array. Example: 
 ```c
 void changeArray(int arr[]) {
     arr[0] = 10;
@@ -50,10 +53,19 @@ void changeArray(int arr[]) {
  
 int main() {
     int arr[5] = {1, 2, 3, 4, 5};
-    changeArray(arr);
+    changeArray(arr); // The array's name is used as the argument without the []
     printf("%d\n", arr[0]); // Prints out 10
 }
 ```
+- Array elements in C are stored are allocated in consevutive locations in the program's memory.
+- Initializing an array with a loop:
+```c
+int arr[10];
+for (int i = 0; i < 10; i++) {
+    arr[i] = i;
+}
+```
+> Note that `i < 10` and not `i <= 10` because the index of the last element is 9, not 10.
 
 
 ## Strings 🔤
@@ -64,8 +76,28 @@ char str1[10] = "Hello"; // 10 is the size of the array
 char str2[] = "Hello";   // Size of the array is determined by the length of the string
 char *str3 = "Hello";    // Size of the array is determined by the length of the string
 ```
+- A string that has been declared as an array of characters can be modified, but a string that has been declared as a pointer to a string literal cannot be modified.
+```c
+char str1[] = "Hello"; // This string can be modified
+strcpy(str1, "Hello"); // This is allowed
+
+char *str2 = "Hello";  // This string cannot be modified
+strcpy(str2, "Hello"); // This is not allowed
+```
 - Strings are terminated with a null character `\0`, so when declaring a string, you must account for the null character.
-- To find the size of a string, find the length of the array in **bytes** and divide by the size of a character in **bytes**. Example: `strlen(arr)*8/sizeof(char)*8`.
+- To find the size of a string:
+```c
+char str[] = "Hello";
+int size = sizeof(str);
+printf("%d\n", size);   
+printf(size); // This is not allowed - Always use format specifiers when printing
+```
+- To print or read a string, use the `%s` format specifier.
+```c
+char str[10];
+str = "Hello"; // This is not allowed
+strcpy(str, "Hello"); // This is allowed
+```
 
 
 ### Resources: - [C Programming Language (1.4 - 1.5)](https://diveintosystems.org/book/C1-C_intro/functions.html)
@@ -87,9 +119,22 @@ struct student {
     float gpa;
 };
 ```
-- Example of declaring a struct variable:
+### Initializing Structs 
+- Declaring an unitialized struct variable:
 ```c
 struct student s1;
+```
+- Fully Initialized
+```c
+struct student s1 = {"John", 20, 3.5};
+```
+- Partially Initialized 
+> Keep in mind that to partially initialize a struct, you must initialize the first variable in the struct (Example A), otherwise you must use designated initializers (Example B).
+```c
+// Example A
+struct student s1 = {"John", 20};
+// Example B
+struct student s1 = {.age = 20, .gpa = 3.5};
 ```
 - Example of accessing a struct variable:
 ```c
@@ -151,7 +196,6 @@ int main() {
     #endif
 }
 ```
-
 
 ## Debugging with GDB 🕵️ 
 1) Compile your program with the `-g` flag.
