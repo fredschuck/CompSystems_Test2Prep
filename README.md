@@ -18,6 +18,20 @@
 
 ## 3️⃣ Module 03 - Unit 3: Structs, the Preprocessor and Debugging in C
 #### [Slides](Module3/Unit3/slides/) | [...Read More](Module3) 
+### Structs
+Structs are declared with the following format:
+```
+//declaring a student struct
+struct studentT{
+   char name[64];
+   int age;
+   float gpa;
+   int grad_year;
+}
+
+```
+
+### Debugging using GDB
 ### 1) Compile your program with the `-g` flag.
 ```
 $ gcc -g -o program program.c
