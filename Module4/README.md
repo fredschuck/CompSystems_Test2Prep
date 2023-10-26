@@ -59,3 +59,28 @@ Steps:
 To obtain your result, grab the remainders from bottom to top. In this case, the result is (3246)<sub>7</sub>
 
 ![image](resources/convertion_1.png)
+
+## Signed Binary Number Encoding
+
+## Signed Magnitude
+
+## Converting Signed Binary to Decimal
+
+## Two's Complement
+
+## Converting from Decimal to Two's Complement
+
+## Converting Negative Decimal to Two's Complement
+
+## Converting from Two's Complement to Decimal
+
+## Additionof Two Unsigned Binary Numbers
+
+## Addition of Two Signed Binary Numbers
+
+## Bitwise Operators
+
+## Bitwise Operations 
+
+## Bit Shifting
+
