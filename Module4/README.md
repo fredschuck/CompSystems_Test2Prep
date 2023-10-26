@@ -8,24 +8,19 @@
 - Binary notation is base 2: 0, 1
 
 Decimal →
-1308 = 1
-x10<sup>3</sup> + 3 x 10<sup>2</sup> + 0 x 10<sup>1</sup> + 8 x 10<sup>0</sup>
+1308 = 1 x 10<sup>3</sup> + 3 x 10<sup>2</sup> + 0 x 10<sup>1</sup> + 8 x 10<sup>0</sup>
 
 Binary →
 1010 = 1 x 2<sup>3</sup> + 0 x 2<sup>2</sup> + 1 x 2<sup>1</sup> + 0 x 2<sup>0</sup>
 
 
 ## Converting fromn Base B to Decimal
-2012<sub>3</sub> <br> 
+(2012)<sub>3</sub> <br> 
 = 2 x 3<sup>3</sup> + 0 x 3<sup>2</sup> + 1 x 3<sup>1</sup> + 2 x 3<sup>0</sup> <br> = 2 x 27 + 0 x 9 + 1 x 3 + 2 x 1 <br> = 59
 
 ## Hexadecimal Numbers
 
 ### Hexadecimal Conversion Table
-|Hex | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A  | B  | C  | D  | E  | F  |
-|----|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|
-|Dec | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
-|Bin | 0000 | 0001 | 0010 | 0011 | 0100 | 0101 | 0110 | 0111 | 1000 | 1001 | 1010 | 1011 | 1100 | 1101 | 1110 | 1111 |
 
 | Hexadecimal | Decimal | Binary   |
 |------------|---------|----------|
@@ -47,6 +42,18 @@ Binary →
 | F          | 15      | 1111     |
 
 (3B2)<sub>16</sub> <br>
+= 3 x 16<sup>2</sup> + B x 16<sup>1</sup> + 2 x 16<sup>0</sup> <br>
+= 3 x 256 + 11 x 16 + 2 x 1 <br>
+= 946
 
 ## Converting from Decimal to Base B
 
+Given 1161 in decimal, convert to base 7: 
+Steps:
+1) Take the number (1161) and divide it by the base (7)
+2) Take the remainder (6) and write it down
+3) Take the quotient (165) and divide it by the base (7)
+4) Take the remainder (4) and write it down
+5) Repeat until the quotient is smaller than the base
+
+![image](resources/convertion_1.png)
