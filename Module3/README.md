@@ -12,8 +12,6 @@
 - Arguments passed to functions are either passed by value or passed by reference (only if using pointers).
 - A function **_prototype_** is a declaration of a function that specifies the function's name and type signature (arity, parameter types, and return type), but omits the function body.
 - A function **_definition_** is the function prototype plus its body.
-
-
 ```c
 // Example of a simple function
 
@@ -21,11 +19,39 @@ int add(int a, int b) {
     return a + b;
 }
 ```
+- If you want to return more than one value, make the return type a struct, use global variables (which should go above main method and function prototypes), or pass values by reference. 
+- Functionn prototype that returns a struct: `struct student createStudent(char *name, int age, int score)` or `struct student createStudent(char name[], int age, int score)`
+- Recursions are functions that call themselves. Each iteration should temporarily store input of intermediate values while waiting for the restults of recursion to be returned.
+```c
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    }
+    return n * factorial(n - 1);  
+}
+```
 
 ## The Stack 📚
 - The stack is a region of memory that is used to store local variables and function arguments. Only local variables and paremeters are in scope.
 - The stack is a LIFO (last in, first out) data structure.
 - When a function is called, the arguments and local variables are pushed onto the stack. Then when the function returns, the arguments and local variables are popped off the stack.
+
+### LValues
+- An lvalue is an expression that refers to a memory location and allows us to take the address of that memory location via the `&` operator.
+- An lvalue typically appears on the left-hand side of an assignment operator `=`.
+
+## The C Standard Library 🏛️
+- The C Standard Library is a collection of header files and library routines used to implement common operations, such as input/output and string handling.
+
+| Purpose                   | Header File     |
+|---------------------------|-----------------|
+| Input/output processing   | `<stdio.h>`     |
+| String handling           | `<string.h>`    |
+| Mathematical computations | `<math.h>`      |
+| Memory management         | `<stdlib.h>`    |
+| Generating random numbers | `<stdlib.h>`    |
+| Date and time processing  | `<time.h>`      |
+
 
 
 ## Arrays 🔢 
@@ -95,7 +121,7 @@ printf(size); // This is not allowed - Always use format specifiers when printin
 - To print or read a string, use the `%s` format specifier.
 ```c
 char str[10];
-str = "Hello"; // This is not allowed
+str = "Hello"; // This is never allowed
 strcpy(str, "Hello"); // This is allowed
 ```
 
@@ -155,14 +181,43 @@ printStudent(s1);
 - Example of passing a struct to a function by **_reference_**:
 ```c
 void printStudent(struct student *s) {
-    printf("Name: %s\n", s->name);
+    printf("Name: %s\n", (*s).name); // Same as s->name
     printf("Age: %d\n", s->age);
     printf("GPA: %f\n", s->gpa);
 }
 
 printStudent(&s1);
 ```
+- Example of a struct containing another struct:
+```c
+struct course {
+    char *name;
+    int num_students;
+};
 
+struct student {
+    char *name;
+    int age;
+    float gpa;
+    struct course course;
+};
+
+struct student s1 = {"John", 20, 3.5, {"CS 211", 100}};
+```
+- When passing a string to a function, you must use a pointer to a string literal and not a copy of the string literal.
+```c
+struct student createStudent(char *name, int age, float gpa) {
+    struct student s;
+    strcpy(s.name, name); // Do not use s.name = name
+    s.age = age;
+    s.gpa = gpa;
+    return s;
+}
+
+struct student s3 = createStudent("Jack", 21, 95);
+printStudent1(&s3); // You must use &s3 and not s3
+```
+> Note that name is a pointer to a string literal and not a copy of the string literal. This is because string literals are stored in the read-only section of memory, so they cannot be modified. If you want to modify the string literal, you must copy it into an array of characters.
 
 
 ## The Preprocessor ⚙️
@@ -186,6 +241,7 @@ float area = PI * radius * radius;
 - Conditional compilation is done using the `#if`, `#elif`, `#else`, and `#endif` directives.
 - Example of conditional compilation:
 ```c
+// Example A
 #define DEBUG 1
 
 int main() {
@@ -195,6 +251,17 @@ int main() {
         printf("Debugging is off\n");
     #endif
 }
+
+// Example B
+#if defined(LINUX)
+    #define HDR “linux.h”
+#elif defined(WIN32)
+    #define HDR “windows.h”
+#else
+    #define HDR “default.h”
+#endif
+
+#include HDR
 ```
 
 ## Debugging with GDB 🕵️ 
@@ -210,16 +277,20 @@ $ gdb program
 
 | Command   | Description                                                     |
 |-----------|-----------------------------------------------------------------|
-| `break`   | Set a breakpoint                                                |
+| `break <line>` or `break <function>` | Set a breakpoint                                                |
 | `run`     | Start program running from the beginning                       |
 | `cont`    | Continue execution of the program until it hits a breakpoint    |
 | `quit`    | Quit the GDB session                                           |
 | `next`    | Allow the program to execute the next line of C code and then pause it |
 | `step`    | Allow the program to execute the next line of C code; if the next line contains a function call, step into the function and pause |
-| `list`    | List C source code around the pause point or a specified point |
-| `print`   | Print out the value of a program variable (or expression)      |
+| `list`    | List (show) 10 lines of code at specified location in program |
+| `print` or `print <var>`   | Print out the value of a variable (or expression)      |
 | `where`   | Print the call stack                                           |
 | `frame`   | Move into the context of a specific stack frame                |
+| `continue`| Continue execution of the program until it hits a breakpoint    |
+| `set <var><expression>` | Set the value of a variable to the specified expression |
+| `where` | Print the call stack |
+
 
 
 ### Resources: - [C Programming Language (1.6 - 1.7, 3.1 - 3.2)](https://diveintosystems.org/book/C1-C_intro/structs.html)
