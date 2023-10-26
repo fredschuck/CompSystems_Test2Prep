@@ -86,7 +86,7 @@ $ gdb program
 | `where`   | Print the call stack                                           |
 | `frame`   | Move into the context of a specific stack frame                |
 
-<p align="right">(<a href="#top" style="text-decoration: none;"> back to top ↑ </a>)</p>
+<p align="right">(<a href="#top"> back to top ↑ </a>)</p>
 
 
 
