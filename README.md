@@ -100,7 +100,7 @@ $ gdb program
 ## 4️⃣ Module 04: Number Systems
 #### [Slides](Module4/slides/) 
 
-
+![image](Module4/resources/convertion_1.png)
 <p align="right">(<a href="#top"> back to top ↑ </a>)</p>
 
 
