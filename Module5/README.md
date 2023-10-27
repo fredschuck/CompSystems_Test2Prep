@@ -465,7 +465,12 @@ if (remove(“/tmp/testfile.txt”))
 ### fgets()
 ```c
 char * fgets(char * s, int n, FILE *stream)
-/*--------------------------*/
+```
+- str: This is a pointer to a character array (a string) where the read line of text will be stored. It's where the text data will be placed. You should ensure that the character array has enough space to hold the line of text. This character array should be pre-allocated.
+- size: It specifies the maximum number of characters to be read, including the null-terminating character. This parameter helps prevent buffer overflows. For example, if you specify 80, fgets will read up to 79 characters from the input stream (stdin) and add a null-terminating character '\0' at the end to make it a C-style string.
+- stream: This is a pointer to the input stream from which you want to read. Common values are stdin for standard input (keyboard input) or a file pointer if you want to read from a file. For reading from the keyboard, you use stdin.
+```c
+
 char line[80];
 if (fgets(line, 80, stdin) == NULL) 
     // …error, take action here…
