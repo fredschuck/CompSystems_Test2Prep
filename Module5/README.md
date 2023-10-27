@@ -324,22 +324,85 @@ while ((ch = getchar()) != EOF) {
 }
 ```
 
+### fopen() and fclose()
+`FILE * fopen(const char *filename, const char
+*mode)`
+- `fopen()` opens a file and returns a pointer to a `FILE` structure.
+```c
+FILE * infile;
+infile = fopen(“/tmp/testfile.txt”, “r”);
+if (infile == NULL){ 
+    (void) printf(“Error.\n”); 
+    return -1;
+}
+```
+| Mode | Meaning                                       |
+|------|-----------------------------------------------|
+| "r"  | Open for reading.                            |
+| "w"  | Create file for writing (discard previous contents). |
+| "a"  | Append to an existing file or create it for writing.  |
+| "b"  | Used with any of the above modes to indicate binary mode (e.g., "rb", "wb"). |
+| "r+" | Open for reading and writing.                 |
+
+### fgetc() and getc()
+```c
+int fgetc(FILE *stream)
+int getc(FILE *stream)
+/*--------------------------*/
+int res;
+unsigned char c;
+if ((res = getc(stdin)) == EOF)
+…take action here…
+c = (unsigned char) res;
+```
+- Read next character of stream as unsigned char (converted to int)
+- Return EOF on end of file or error
+- `fgetc()` is a macro that calls `getc()`
+```c
+int ch;
+while ((ch = fgetc(infile)) != EOF) {
+    putchar(ch);
+}
+```
+### fputc() and putc()
+```c
+int fputc(int c, FILE *stream)
+int putc(int c, FILE * stream)
+/*--------------------------*/
+(void) putc(‘H’, stdout);
+(void) putc(‘I’, stdout);
+(void) putc(‘!’, stdout);
+```
+- Write the character c (converted to unsigned char) to stream
+- Returns character written, or EOF on error
+- putchar(c) equivalent to putc(c, stdout)
+
+### fgets() and fputs()
+
+### fscanf() and fprintf()
+
 
 ## Other
 
 ### Format Placeholders
-```c 
-%5.3f: print float value in space 5 chars wide, with 3 places beyond decimal
-%20s:  print the string value in a field of 20 chars wide, right justified
-%-20s: print the string value in a field of 20 chars wide, left justified
-%8d:   print the int value in a field of 8 chars wide, right justified
-%-8d:  print the int value in a field of 8 chars wide, left justified
+```
+%5.3f   print float value in space 5 chars wide, with 3 places beyond decimal
+%20s    print the string value in a field of 20 chars wide, right justified
+%-20s   print the string value in a field of 20 chars wide, left justified
+%8d     print the int value in a field of 8 chars wide, right justified
+%-8d    print the int value in a field of 8 chars wide, left justified
 
-%x:     print value in hexadecimal (base 16)
-%o:     print value in octal (base 8)
-%d:     print value in signed decimal  (base 10)
-%u:     print value in unsigned decimal (unsigned base 10)
-%e:     print float or double in scientific notation
+%x      print value in hexadecimal (base 16)
+%o      print value in octal (base 8)
+%d      print value in signed decimal  (base 10)
+%u      print value in unsigned decimal (unsigned base 10)
+%e      print float or double in scientific notation
+%p      print pointer value, address, in hexadecimal
+
+%ld     placeholder for a long value
+%lu     placeholder for an unsigned long value
+%lld    placeholder for a long long value
+%llu    placeholder for an unsigned long long value
 ```
 
 
