@@ -30,6 +30,7 @@
 - The stack is a fixed size.
 - Local variables are pushed onto the stack when the function is called and popped off when the function returns.
 - Stack storage space for local variables and parameters exists only when the function is active.
+- Statically declared arrays are stored here.
 
 ## Pointers
 
@@ -81,7 +82,8 @@ if(ptr == NULL){
    exit(0);
 }
 
-free(ptr);
+free(ptr); // Free the pointer
+ptr = NULL; // It's recommended to set pointer to NULL after freeing
 ```
 - To allocate memory for an array, we can use the following:
 ```c
@@ -91,12 +93,51 @@ char *ptr = (char *) malloc(5 * sizeof(char));
 float *ptr = (float *) malloc(5 * sizeof(float));
 ```
 
+### Calloc and Realloc
+- `calloc()` is similar to `malloc()`, but it takes two arguments: the number of elements to allocate and the size of each element.
+```c
+int *ptr = (int *) calloc(5, sizeof(int));
+``` 
+- `realloc()` is used to reallocate memory. It takes two arguments: the pointer to the previously allocated memory and the new size.
+```c
+int *ptr = (int *) malloc(5 * sizeof(int));
+ptr = realloc(ptr, 10 * sizeof(int));
+```
+
+
 ## Pointers and Arrays
 
 - Pointers can be used to access array elements:
 ```c
 int arr[5] = {1, 2, 3, 4, 5};
 int *ptr = arr;
+```
+- When trying to access an element of a dynamically allocated array, we can use the following:
+```c
+int *ptr = (int *) malloc(5 * sizeof(int));
+*(ptr + 2) = 5; // This is considered pointer arithmetic
+    /* or */
+ptr[2] = 5; // Notice that * is not used here when accessing the element
+```
+### 2D Arrays
+- 2D Arrays are declared as follows:
+```c
+//        rows cols
+int matrix[50][100]; 
+```
+- To access an element of a 2D array, we can use the following:
+```c
+int i, j;
+
+for (i = 0; i < 50; i++) {  // for each row first
+    for (j = 0; j < 100; j++) { // for each column second
+        matrix[i][j] = 0;
+    }
+}
+```
+- Dynamically allocated 2D arrays are declared as follows:
+```c
+int *matrix = (int *) malloc(sizeof(int) * (rows * cols));
 ```
 
 ### Resources: - [C Programming Language (2.1 - 2.5)](https://diveintosystems.org/book/C2-C_depth/scope_memory.html)
@@ -119,3 +160,5 @@ struct studentT{
 struct studentT student;
 struct studentT *ptr = &student;
 ```
+
+### Resources: - [C Programming Language (2.6 - 2.9.3)](https://diveintosystems.org/book/C2-C_depth/strings.html)
