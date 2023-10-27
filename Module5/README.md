@@ -271,8 +271,8 @@ str = "Hi"; // str now points to "Hi"
 ### <stdlib.h> Library Functions 📚
 | Function         | Description                             |
 |------------------|-----------------------------------------|
-| `atoi(str);`     | Converts the string `str` to an integer |
-| `atof(str);`     | Converts the string `str` to a double   |
+| `atoi(str);`     | Converts the string `str` to an integer, ignoring leading white space |
+| `atof(str);`     | Converts the string `str` to a double, ignoring leading white space   |
 
 
 ## ascanf() and aprintf() Functions
@@ -292,6 +292,13 @@ printf("%s", output); // There are 55 cars
 ```
 
 ## I/O Functions
+- **Buffer** is the area of memory used to reduce number of expensive system calls 
+- **Stream** is the source of input or destination of output
+- Every program begins execution with three streams open (they open and close automatically):
+  - `stdin` - standard input stream
+  - `stdout` - standard output stream
+  - `stderr` - standard error stream
+
 ```shell
 #  redirect a.out's stdin to read from file infile.txt:
 $ ./a.out < infile.txt
@@ -315,7 +322,6 @@ while ((ch = getchar()) != EOF) {
     putchar(ch);
 }
 ```
-
 
 
 ## Other
