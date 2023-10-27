@@ -462,7 +462,24 @@ if (remove(“/tmp/testfile.txt”))
 ```
 - Delete the named file, return 0 if successful
 
-### fgets() and fputs()
+### fgets()
+```c
+char * fgets(char * s, int n, FILE *stream)
+/*--------------------------*/
+char line[80];
+if (fgets(line, 80, stdin) == NULL)
+    // …error, take action here…
+```
+- Reads at most `n-1` characters from `stream` into `s`, stopping if newline is encountered.
+
+### fputs()
+```c
+int fputs(const char * s, FILE *stream)
+/*--------------------------*/
+if (fputs(“Hello”, stdout) == EOF)
+    // …error, take action here…
+```
+- Writes string `s` to `stream`, stopping at null character.
 
 ### fscanf() and sscanf()
 ```c
