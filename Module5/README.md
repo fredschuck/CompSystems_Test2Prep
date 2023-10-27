@@ -483,6 +483,7 @@ int ferror(FILE *stream) // Returns non-zero if error indicator for stream is se
 void clearerr(FILE *stream) // Clears previously set error indicator for stream
 ```
 - Errors are not cleared unless programmer explicitly uses `clearerr`
+
 ## Other
 
 ### Format Placeholders
@@ -506,5 +507,68 @@ void clearerr(FILE *stream) // Clears previously set error indicator for stream
 %llu    placeholder for an unsigned long long value
 ```
 
+### Switch Statments
+```c
+switch (expression) {
+    case constant1:
+        statement(s);
+        break; // Removing break will cause fall through to the next case.
+    case constant2:
+        statement(s);
+        break;
+    case 3: case 4: case 5: // Can have multiple cases for one statement
+        statement(s);
+        break;
+    default:
+        statement(s);
+}
+```
+- Removing break statements will cause the switch statement to fall through to the next case.
+- Often faster than if statements.
 
+### Enums
+```c
+num colors {red, blue, green, white, black};
+enum colors mycolor;
+mycolor = blue;
+if ((mycolor == blue) || (mycolor == green))
+    printf("cool color\n"); 
+```
+- Used for variables with a small set of possible values, where actual encoding of value is unimportant. This is better than using a bunch of macros.
+- Do not compare variables of different enum types.
+
+### typedef
+```c
+typedef struct {
+    int val;
+    cptr name;
+    struct mystruct *next;
+} llnode;
+llnode entries[100];
+```
+- Assigns an alternate name (synonym) to a C data type.
+- Makes code more readable and easier to maintain.
+- Usually, `typedef`s are collected in a header file thatis `#include`’d in all source code modules
+
+### Command Line Arguments
+```c
+int main(int argc, char *argv[]) {}
+```
+- `argc`: argument count.
+    - Includes the program itself.
+- `argv`: argument vector.
+    - Array of pointers to command line arguments stored as strings.
+    - `argv[0]`: name of program.
+    - `argv[1]` to `argv[argc-1]`: otehr arguments.
+    - `argv[argc]`: null pointer.
+- Using arrays
+```c
+for (int i = 1; i < argc; i++)
+printf(“%s\n”, argv[i]);
+```
+- Using pointers
+```c
+for (char **p = &argv[1]; *p != NULL; p++)
+printf(“%s\n”, *p);
+```
 ### Resources: - [C Programming Language (2.6 - 2.9.3)](https://diveintosystems.org/book/C2-C_depth/strings.html)
