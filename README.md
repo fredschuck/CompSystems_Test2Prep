@@ -98,7 +98,7 @@ $ gdb program
 ******************************************************************************************** 
 -->
 ## 4️⃣ Module 04: Number Systems
-#### [Slides](Module4/slides/) 
+#### [Slides](Module4/slides/) | [...Read More](Module4) 
 
 ![image](Module4/resources/convertion_1.png)
 <p align="right">(<a href="#top"> back to top ↑ </a>)</p>
@@ -111,7 +111,7 @@ $ gdb program
 ******************************************************************************************** 
 -->
 ## 5️⃣ Module 05 - Unit 1: Program Memory, C Pointers and Arrays
-#### [Slides](Module5/Unit1/slides/)
+#### [Slides](Module5/Unit1/slides/) | [...Read More](Module5) 
 
 ### malloc() function
 ```
@@ -120,7 +120,7 @@ intArray = (int *)malloc(5 * sizeof(int));
 ```
 
 ## 5️⃣ Module 05 - Unit 2: The String Library, Structs and I/O
-#### [Slides](Module5/Unit2/slides/)
+#### [Slides](Module5/Unit2/slides/) | [...Read More](Module5) 
 
 ### <string.h> Library Functions 📚
 | Function               | Description                                                         |
