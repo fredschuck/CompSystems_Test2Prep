@@ -324,7 +324,7 @@ while ((ch = getchar()) != EOF) {
 }
 ```
 
-### fopen() and fclose()
+### fopen()
 `FILE * fopen(const char *filename, const char
 *mode)`
 - `fopen()` opens a file and returns a pointer to a `FILE` structure.
@@ -344,6 +344,17 @@ if (infile == NULL){
 | "b"  | Used with any of the above modes to indicate binary mode (e.g., "rb", "wb"). |
 | "r+" | Open for reading and writing.                 |
 
+### fclose()
+```c
+int fclose(FILE * stream)
+/*--------------------------*/
+(void) fclose(outfile);
+```
+- `fclose()` closes a file.
+- Flushes any unwritten data to output file or device
+- Closes the stream (cannot be read or written after)
+```c
+
 ### fgetc() and getc()
 ```c
 int fgetc(FILE *stream)
@@ -355,9 +366,9 @@ if ((res = getc(stdin)) == EOF)
 …take action here…
 c = (unsigned char) res;
 ```
-- Read next character of stream as unsigned char (converted to int)
-- Return EOF on end of file or error
-- `fgetc()` is a macro that calls `getc()`
+- Read next character of stream as `unsigned char` (converted to `int`)
+- Return `EOF` on end of file or error
+- `getchar()` is equivalent to `getc(stdin)`
 ```c
 int ch;
 while ((ch = fgetc(infile)) != EOF) {
@@ -373,9 +384,83 @@ int putc(int c, FILE * stream)
 (void) putc(‘I’, stdout);
 (void) putc(‘!’, stdout);
 ```
-- Write the character c (converted to unsigned char) to stream
-- Returns character written, or EOF on error
-- putchar(c) equivalent to putc(c, stdout)
+- Write the character `c` (converted to `unsigned char`) to `stream`
+- Returns character written, or `EOF` on error
+- `putchar(c)` equivalent to `putc(c, stdout)`
+
+### ungetc()
+```c
+int ungetc(int c, FILE * stream)
+/*--------------------------*/
+int ch;
+while ((ch = fgetc(infile)) != EOF) {
+    if (ch == ‘#’) {
+        (void) ungetc(‘#’, infile);
+        break;
+    }
+    putchar(ch);
+}
+```
+- Pushes `c` (converted to `unsigned char`) back onto `stream`!
+    - Clears the stream’s end-of-file indicator.
+    - c will be read by next `getc` on `stream`.
+- **_Only one_** character of pushback per stream is guaranteed.
+- `EOF` may not be pushed back.
+- Returns character pushed back, `EOF` on error.
+
+### fread() and fwrite()
+```c
+size_t fread (void * ptr, size_t size,
+size_t nobj, FILE * stream)
+/*--------------------------*/
+char items[NUMITEMS];
+size_t nr = fread((void *) items, sizeof(char),
+(size_t) NUMITEMS, stdin);
+if (nr != NUMITEMS)
+    // … do something here …
+```
+- Reads up to `nobj` objects of size `size` from `stream` into array pointed to by `ptr`.
+- Returns number of objects read, less if error.
+```c
+size_t fwrite (const void * ptr, size_t size,
+size_t nobj, FILE * stream)
+```
+- Writes up to `nobj` objects of size `size` starting at address `ptr` to `stream`.
+- Returns number of objects written, less than requested if error.
+
+### fseek() and ftell()
+```c
+int fseek (FILE *stream, long offset,
+int origin)
+/*--------------------------*/
+int res = fseek(infile, (long) 1000, SEEK_SET);
+c = getc(infile); /* now read 1001st byte */
+int res = fseek(infile, (long) -5, SEEK_END);
+c = getc(infile); /* read 5th byte from end */
+```
+- Sets file position (for subsequent reading or writing) to `offset` from `origin`.
+- `origin` may be `SEEK_SET` (beginning of file), `SEEK_CUR` (current position), or `SEEK_END` (end of file).
+- Mainly for binary streams.
+- Returns non-zero on error.
+
+### fflush()
+```c
+int fflush(FILE *stream)
+/*--------------------------*/
+int res = fflush(stdout);
+```
+- Causes any buffered data to be immediately written to output file.
+- Helpful if you don’t want to wait for `‘\n’` to see output. `fflush(stdout);`
+- Or if you want to discard all the input typed by the user so far. `fflush(stdin);`
+
+### fremove()
+```c
+int remove(const char *filename)
+/*--------------------------*/
+if (remove(“/tmp/testfile.txt”))
+    // …error, take action here…
+```
+- Delete the named file, return 0 if successful
 
 ### fgets() and fputs()
 
