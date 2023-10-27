@@ -245,12 +245,12 @@ str = "Hi"; // str now points to "Hi"
 | Function               | Description                                                         |
 |------------------------|---------------------------------------------------------------------|
 | `strlen(str);`         | Returns the length of `str`                                         |
-| `strcpy(str1, str2);`  | Copies `str2` into `str1`                                           |
-| `strncpy(str1, str2, n);` | Copies `n` characters of `str2` into `str1`                      |
-| `strcmp(str1, str2);` | Returns 0 if `str1` and `str2` are equal                             |
-| `strncmp(str1, str2, n);` | Returns 0 if the first `n` characters of `str1` and `str2` are equal |
-| `strcat(str1, str2);` | Concatenates `str2` onto the end of `str1`                           |
-| `strstr(str1, str2);` | Returns a pointer to the first occurrence of `str2` in `str1`        |
+| `strcpy(dst, src);`  | Copies `src` into `dst`                                           |
+| `strncpy(dst, src, n);` | Copies `n` characters of `src` into `dst`                      |
+| `strcmp(dst, src);` | Returns 0 if `dst` and `src` are equal                             |
+| `strncmp(dst, src, n);` | Returns 0 if the first `n` characters of `dst` and `src` are equal |
+| `strcat(dst, src);` | Concatenates `src` onto the end of `dst`                           |
+| `strstr(dst, src);` | Returns a pointer to the first occurrence of `src` in `dst`        |
 | `strchr(str, ch);`    | Returns a pointer to the first occurrence of the character `ch` in `str` |
 | `sprintf(str, "%d", n);` | Writes the string form of the integer `n` into `str`              |
 
@@ -289,6 +289,50 @@ int total_cars = 0;
 sscanf(input, "%d", &total_cars);
 sprintf(output, "There are %d cars", total_cars);
 printf("%s", output); // There are 55 cars
+```
+
+## I/O Functions
+```shell
+#  redirect a.out's stdin to read from file infile.txt:
+$ ./a.out < infile.txt
+
+#  redirect a.out's stdout to print to file outfile.txt:
+$ ./a.out > outfile.txt
+
+# redirect a.out's stdout and stderr to a file out.txt
+$ ./a.out &> outfile.txt
+
+# redirect all three to different files:
+#   (< redirects stdin, 1> stdout, and 2> stderr):
+$ ./a.out < infile.txt 1> outfile.txt 2> errorfile.txt
+```
+### getchar() and putchar()
+- `getchar()` reads a single character from stdin.
+- `putchar()` writes a single character to stdout.
+```c
+int ch;
+while ((ch = getchar()) != EOF) {
+    putchar(ch);
+}
+```
+
+
+
+## Other
+
+### Format Placeholders
+```c 
+%5.3f: print float value in space 5 chars wide, with 3 places beyond decimal
+%20s:  print the string value in a field of 20 chars wide, right justified
+%-20s: print the string value in a field of 20 chars wide, left justified
+%8d:   print the int value in a field of 8 chars wide, right justified
+%-8d:  print the int value in a field of 8 chars wide, left justified
+
+%x:     print value in hexadecimal (base 16)
+%o:     print value in octal (base 8)
+%d:     print value in signed decimal  (base 10)
+%u:     print value in unsigned decimal (unsigned base 10)
+%e:     print float or double in scientific notation
 ```
 
 

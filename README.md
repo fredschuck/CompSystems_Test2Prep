@@ -125,15 +125,13 @@ intArray = (int *)malloc(5 * sizeof(int));
 ### <string.h> Library Functions 📚
 | Function               | Description                                                         |
 |------------------------|---------------------------------------------------------------------|
-| `strlen(str);`         | Returns the length of `str`                                        |
-| `strcpy(str1, str2);`  | Copies `str2` into `str1`                                           |
-| `strncpy(str1, str2, n);` | Copies `n` characters of `str2` into `str1`                     |
-| `strcmp(str1, str2);` | Returns 0 if `str1` and `str2` are equal                           |
-| `strncmp(str1, str2, n);` | Returns 0 if the first `n` characters of `str1` and `str2` are equal |
-| `strcat(str1, str2);` | Concatenates `str2` onto the end of `str1`                        |
-| `strstr(str1, str2);` | Returns a pointer to the first occurrence of `str2` in `str1`     |
+| `strlen(str);`         | Returns the length of `str`                                         |
+| `strcpy(dst, src);`  | Copies `src` into `dst`                                           |
+| `strcmp(dst, src);` | Returns 0 if `dst` and `src` are equal                             |
+| `strcat(dst, src);` | Concatenates `src` onto the end of `dst`                           |
+| `strstr(dst, src);` | Returns a pointer to the first occurrence of `src` in `dst`        |
 | `strchr(str, ch);`    | Returns a pointer to the first occurrence of the character `ch` in `str` |
-| `sprintf(str, "%d", n);` | Writes the string form of the integer `n` into `str`           |
+| `sprintf(str, "%d", n);` | Writes the string form of the integer `n` into `str`              |
 
 
 ### <ctype.h> Library Functions 📚
@@ -154,6 +152,30 @@ intArray = (int *)malloc(5 * sizeof(int));
 |------------------|-----------------------------------------|
 | `atoi(str);`     | Converts the string `str` to an integer |
 | `atof(str);`     | Converts the string `str` to a double  |
+
+## I/O Functions
+```shell
+#  redirect a.out's stdin to read from file infile.txt:
+$ ./a.out < infile.txt
+
+#  redirect a.out's stdout to print to file outfile.txt:
+$ ./a.out > outfile.txt
+
+# redirect a.out's stdout and stderr to a file out.txt
+$ ./a.out &> outfile.txt
+
+# redirect all three to different files:
+#   (< redirects stdin, 1> stdout, and 2> stderr):
+$ ./a.out < infile.txt 1> outfile.txt 2> errorfile.txt
+```
+### getchar() and putchar()
+- `getchar()` reads a single character from stdin.
+- `putchar()` writes a single character to stdout.
+```c
+int ch;
+while ((ch = getchar()) != EOF) {
+    putchar(ch);
+}
 
 <p align="right">(<a href="#top"> back to top ↑ </a>)</p>
 
