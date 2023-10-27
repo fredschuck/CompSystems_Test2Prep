@@ -464,9 +464,25 @@ if (remove(“/tmp/testfile.txt”))
 
 ### fgets() and fputs()
 
-### fscanf() and fprintf()
+### fscanf() and sscanf()
+```c
+int fscanf(FILE *stream, const char *fmt, …) // Like scanf, but specify stream to be read from
+int sscanf(char * s, const char *fmt, …)    // Like scanf, but scans from a string instead of a file
+```
 
+### fprintf() and sprintf()
+```c
+int fprintf(FILE *stream, const char *fmt, …) // Like printf, but specify stream to be written to
+int sprintf(char * s, FILE *stream, const char *fmt, …) // Like printf, but prints to a string instead of a file
+```
 
+### Error Functions
+```c
+int feof(FILE *stream) // Returns non-zero if EOF for stream has been reached
+int ferror(FILE *stream) // Returns non-zero if error indicator for stream is set
+void clearerr(FILE *stream) // Clears previously set error indicator for stream
+```
+- Errors are not cleared unless programmer explicitly uses `clearerr`
 ## Other
 
 ### Format Placeholders
