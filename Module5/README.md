@@ -80,6 +80,15 @@ if(ptr == NULL){
    printf("Error! Memory not allocated.");
    exit(0);
 }
+
+free(ptr);
+```
+- To allocate memory for an array, we can use the following:
+```c
+// We need to allocate for the full array, so we multiply the size of the data type by the number of elements in the array.
+int *ptr = (int *) malloc(5 * sizeof(int));
+char *ptr = (char *) malloc(5 * sizeof(char));
+float *ptr = (float *) malloc(5 * sizeof(float));
 ```
 
 ## Pointers and Arrays

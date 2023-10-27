@@ -105,7 +105,51 @@ Example: **-13** <br>
 
 ## Bitwise Operations
 
-### Bitwise Operators 
+### Bitwise AND
+| A | B | A AND B |
+|---|---|---------|
+| 0 | 0 | 0       |
+| 0 | 1 | 0       |
+| 1 | 0 | 0       |
+| 1 | 1 | 1       |
+
+### Bitwise OR
+| A | B | A OR B  |
+|---|---|---------|
+| 0 | 0 | 0       |
+| 0 | 1 | 1       |
+| 1 | 0 | 1       |
+| 1 | 1 | 1       |
+
+### Bitwise XOR
+| A | B | A XOR B |
+|---|---|---------|
+| 0 | 0 | 0       |
+| 0 | 1 | 1       |
+| 1 | 0 | 1       |
+| 1 | 1 | 0       |
+
+### Bitwise NOT
+| A | NOT A |
+|---|-------|
+| 0 | 1     |
+| 1 | 0     |
 
 ## Bit Shifting
 
+### Left Shift
+- Shifts all bits to the left by n places
+- The rightmost n bits are filled with 0s
+- The leftmost n bits are discarded
+```c
+0b0011101 << 2 0b10110100
+```
+
+### Right Shift
+- Shifts all bits to the right by n places
+- The leftmost n bits are filled with 0s
+- The rightmost n bits are discarded
+```c
+0b10110011 >> 2 0b00101100 `logical`
+0b10110011 >> 2 0b11101100 `arithmetic`
+```
