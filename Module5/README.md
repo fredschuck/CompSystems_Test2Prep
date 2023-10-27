@@ -467,7 +467,7 @@ if (remove(“/tmp/testfile.txt”))
 char * fgets(char * s, int n, FILE *stream)
 /*--------------------------*/
 char line[80];
-if (fgets(line, 80, stdin) == NULL)
+if (fgets(line, 80, stdin) == NULL) 
     // …error, take action here…
 ```
 - Reads at most `n-1` characters from `stream` into `s`, stopping if newline is encountered.
