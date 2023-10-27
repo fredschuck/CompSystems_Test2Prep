@@ -212,7 +212,7 @@ for (ap = &(nums[3]); ap < &(nums[3]); ap--) {
 
 
 # Unit 2: The String Library, Structs and I/O
-> [Code Examples](Unit2/code_examples/) | [Slides](Unit2/slides/)
+> [Class Exercises](Unit2/class_exercises/) | [Code Examples](Unit2/code_examples/) | [Slides](Unit2/slides/)
 
 ## Operations on String Literals
 - String literals can be subscripted just like arrays:
@@ -292,6 +292,7 @@ printf("%s", output); // There are 55 cars
 ```
 
 ## I/O Functions
+[Review THIS code!](Unit2/class_exercises/lab_customerData.c)
 - **Buffer** is the area of memory used to reduce number of expensive system calls 
 - **Stream** is the source of input or destination of output
 - Every program begins execution with three streams open (they open and close automatically):
