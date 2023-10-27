@@ -119,9 +119,9 @@ ptr = NULL; // It's recommended to set pointer to NULL after freeing
 - To allocate memory for an array, we can use the following:
 ```c
 // We need to allocate for the full array, so we multiply the size of the data type by the number of elements in the array.
-int *ptr = (int *) malloc(5 * sizeof(int));
+int *ptr = (int *) malloc(sizeof(int));
 char *ptr = (char *) malloc(5 * sizeof(char));
-float *ptr = (float *) malloc(5 * sizeof(float));
+float *ptr = (float *) malloc(sizeof(float));
 ```
 
 ### Calloc and Realloc
